@@ -21,7 +21,6 @@ main.clipboard_get
 
 number_i = tk.IntVar()
 number_ii = tk.IntVar()
-hold_i = 0
 
 ### Rollers
 def Roll_Dice(quanity, sides):
@@ -37,8 +36,7 @@ def Roll_Dice(quanity, sides):
               log.config(state="normal")
               log.insert(tk.INSERT, "["+str(a)+"]")
               log.config(state="disabled")
-              if hold_i is 0:
-                  number_ii.set(0)
+              number_ii.set(0)
               return a
 
 def Clear_Log():
@@ -51,23 +49,6 @@ def Modifier(num):
         b = num + get
         number_ii.set(b)
         return b
-
-def Modifier_Hold(state):
-        trigger = state
-        if trigger is 0:
-            hold_i = 0
-            Mod_Hold_Text()
-            return hold_i
-        elif trigger is 1:
-            hold_i = 1
-            Mod_Hold_Text()
-            return hold_i
-
-def Mod_Hold_Text():
-        while hold_i is 1:
-            return "Modifier Hold: ON"
-        while hold_i is 0:
-            return "Modifier Hold: OFF"
             
 ### Dices
 d2b = tk.Button(main, text = ("d2  "), font = (cf.Base_Font),
@@ -183,20 +164,12 @@ minus_5 = tk.Button(main, text = ("-5  "), font = (cf.Base_Font),
 minus_10 = tk.Button(main, text = ("-10 "), font = (cf.Base_Font),
             command = lambda : Modifier(-10), fg = "gray1", bg = "IndianRed1").grid(row=12,column=3,ipadx=30,ipady=5)
 
-hold_on = tk.Button(main, text = ("Modifier Stick"), font = (cf.Base_Font),
-            command = lambda : Modifier_Hold(1), fg = "gray1", bg = "CadetBlue3").grid(row=13,column=2,ipady=5)
-hold_off = tk.Button(main, text = ("Modifier Clear"), font = (cf.Base_Font),
-            command = lambda : Modifier_Hold(0), fg = "gray1", bg = "IndianRed3").grid(row=13,column=3,ipady=5)
-
-
 ### Numbers and Processe
 counter = tk.Label(main, textvariable = number_i, font = (cf.Counter_Font),
               fg = "gray99", bg = "gray3").grid(row=0,column=8,ipadx=100)
 
 modifier = tk.Label(main, textvariable = number_ii, font = (cf.Modifier_Font),
               fg = "gray99", bg = "Darkorchid4").grid(row=9,column=1,ipadx=150)
-modifier_toggle = tk.Label(main, text = Mod_Hold_Text(), font = (cf.Modifier_Font),
-              fg = "gray99", bg = "Darkorchid4").grid(row=10,column=1,ipadx=0)
 
 log = tk.Text(main, height=7, width=18, bg = "dark slate gray", fg = "SeaGreen1")
 log.grid(row=0,column=1,ipadx=100)
