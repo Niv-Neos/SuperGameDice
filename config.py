@@ -8,11 +8,11 @@ Base_Font = 'system'
 Counter_Font = 'Arial 72'
 Modifier_Font = 'Arial 20'
 
-Direction_Output = 'compass'
+Direction_Output = 'Compass'
 '''
-'compass' (Directions under a compass)
-'advance_compass' (With additional, more precise directions)
-'simple_compass' (Only with N, E, S, W)
-'degress' (In degrees)
-'radians' (In radians)
+'Compass' (Directions under a compass)
+'Advance_Compass' (With additional, more precise directions)
+'Simple_Compass' (Only with N, E, S, W)
+'Degress' (In degrees)
+'Radians' (In radians)
 '''

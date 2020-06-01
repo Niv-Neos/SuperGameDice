@@ -77,32 +77,32 @@ def Determined_Direction():
               steps = steps + 1
        while steps == quanity:
               number_i.set(a)
-              if cf.Direction_Output is 'degrees':
+              if cf.Direction_Output is 'Degrees':
                   log.config(state="normal")
                   log.insert(tk.INSERT, "["+str(a)+"]")
                   log.config(state="disabled")
                   return a
-              elif cf.Direction_Output is 'radians':
+              elif cf.Direction_Output is 'Radians':
                   b = (a*mt.pi)/180
                   log.config(state="normal")
                   log.insert(tk.INSERT, "["+str(round(b,1))+"]")
                   log.config(state="disabled")
                   return a
-              elif cf.Direction_Output is 'compass':
+              elif cf.Direction_Output is 'Compass':
                   compass = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"]
                   b = (a/45)-1
                   log.config(state="normal")
                   log.insert(tk.INSERT, "["+compass[int(round(b,0))]+"]")
                   log.config(state="disabled")
                   return a
-              elif cf.Direction_Output is 'advance_compass':
+              elif cf.Direction_Output is 'Advance_Compass':
                   compass = ["N", "NNE", "NE", "NEE", "E", "SEE", "SE", "SSE", "S", "SSW", "SW", "SWW", "W", "NWW", "NW", "NNW"]
                   b = (a/22.5)-1
                   log.config(state="normal")
                   log.insert(tk.INSERT, "["+compass[int(round(b,0))]+"]")
                   log.config(state="disabled")
                   return a
-              elif cf.Direction_Output is 'simple_compass':
+              elif cf.Direction_Output is 'Simple_Compass':
                   compass = ["N", "E", "S", "W"]
                   b = (a/90)-1
                   log.config(state="normal")
@@ -132,13 +132,13 @@ def Set_Custom_Quanity(num):
         q = num + a
         number_iii.set(q)
         return q
-    
+
 def Set_Custom_Sides(num):
         a = number_iv.get()
         s = num + a
         number_iv.set(s)
         return s
-            
+
 ### Dices
 d2b = tk.Button(main, text = ("d2  "), font = (cf.Base_Font),
             command = lambda : Roll_Dice(1,2,'none'), fg = "red3", bg = "gray3").grid(row=1,column=2,ipadx=30,ipady=5)
@@ -239,9 +239,9 @@ roll = tk.Button(main, text = ("Roll Custom"), font = (cf.Base_Font),
             command = lambda : Roll_Dice(-1,-1,'none'), fg = "gray99", bg = "gray3").grid(row=8,column=2,ipadx=2,ipady=5)
 
 direction = tk.Button(main, text = ("┼"), font = (cf.Base_Font),
-            command = lambda : Determined_Direction(), fg = "gray99", bg = "gray3").grid(row=8,column=6,ipadx=39,ipady=5)
+            command = lambda : Determined_Direction(), fg = "gray99", bg = "gray3").grid(row=8,column=7,ipadx=39,ipady=5)
 percentage = tk.Button(main, text = ("%"), font = (cf.Base_Font),
-            command = lambda : Roll_Dice(1,100,'percent'), fg = "gray99", bg = "gray3").grid(row=8,column=7,ipadx=40,ipady=5)
+            command = lambda : Roll_Dice(1,100,'percent'), fg = "gray99", bg = "gray3").grid(row=8,column=6,ipadx=40,ipady=5)
 
 clear_button = tk.Button(main, text = ("Clear Log"), font = (cf.Base_Font),
             command = lambda : Clear_Log(), fg = "gray1", bg = "brown1").grid(row=1,column=1,ipadx=30,ipady=5)
@@ -277,6 +277,9 @@ custom_quanities = tk.Label(main, textvariable = number_iii, font = (cf.Modifier
 
 custom_sides = tk.Label(main, textvariable = number_iv, font = (cf.Modifier_Font),
               fg = "gray99", bg = "Brown2").grid(row=8,column=1,ipadx=150)
+
+direction_type = tk.Label(main, text = cf.Direction_Output, font = ('system'),
+              fg = "gray99", bg = "gray3").grid(row=8,column=8)
 
 log = tk.Text(main, height=7, width=18, bg = "dark slate gray", fg = "SeaGreen1")
 log.grid(row=0,column=1,ipadx=100)
