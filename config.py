@@ -7,26 +7,121 @@ from tkinter import Scrollbar
 import sound_database as sd
 
 
-Base_Font = 'Dubai 10'
-Counter_Font = 'Arial 72'
-Modifier_Font = 'Arial 20'
-Log_Font = 'lucida 20 bold italic' ### Default lucida 20 bold italic
+#Base_Font = 'Dubai 10'
+#Counter_Font = 'Arial 72'
+#Modifier_Font = 'Arial 20'
+#Log_Font = 'lucida 20 bold italic' ### Default lucida 20 bold italic
 
 class Game_Set(object):
-    def __init__(self, lista = []):
+    def __init__(self, lista = [], index = -1):
         self.lista = lista
+        self.index = index
     def run(self, num):
         return self.lista[num]
 
-No_Game = Game_Set(['None','Dubai 10','Arial 72','Arial 20','lucida 20 bold italic',"gray10","slate gray","sea green","dark slate gray","sea green",'system 8 bold'])
+def Res_Check(check, num_i, num_ii):
+    if Game == check:
+        return num_i
+    else:
+        return num_ii
 
-Dungeons_and_Dragons = Game_Set(['Dungeons and Dragons','Dubai 10','Arial 72','Arial 20','lucida 20 bold italic',"gray10","slate gray","sea green","dark slate gray","sea green",'system 8 bold'])
+No_Game = Game_Set([
+    'None',
+    'Dubai 10',
+    'Arial 72',
+    'Arial 20',
+    'lucida 20 bold italic',
+    "gray10",
+    "dark slate gray",
+    "slate gray",
+    "sea green",
+    "dark slate gray",
+    "sea green",
+    'system 8 bold'], 0)
 
-GURPS = Game_Set(['GURPS','Dubai 10','Arial 72','Arial 20','lucida 20 bold italic',"gray10","slate gray","sea green","dark slate gray","sea green",'system 8 bold'])
+Dungeons_and_Dragons = Game_Set([
+    'Dungeons and Dragons',
+    'Dubai 10',
+    'Arial 72',
+    'Arial 20',
+    'lucida 20 bold italic',
+    "gray10",
+    "dark slate gray",
+    "slate gray",
+    "sea green",
+    "dark slate gray",
+    "sea green",
+    'system 8 bold'], 1)
 
-Savage_Worlds = Game_Set(['Savage Worlds','Dubai 10','Arial 72','Arial 20','lucida 20 bold italic',"gray10","slate gray","sea green","dark slate gray","sea green",'system 8 bold'])
+GURPS = Game_Set([
+    'GURPS',
+    'Dubai 10',
+    'Arial 72',
+    'Arial 20',
+    'lucida 20 bold italic',
+    "gray10",
+    "dark slate gray",
+    "slate gray",
+    "sea green",
+    "dark slate gray",
+    "sea green",
+    'system 8 bold'], 2)
 
-All = Game_Set(['All','Dubai 10','Arial 72','Arial 20','system 16 bold',"gray10","dark slate gray","slate gray","sea green","dark slate gray","sea green",'system 8 bold'])
+Savage_Worlds = Game_Set([
+    'Savage Worlds',
+    'Dubai 10',
+    'Arial 72',
+    'Arial 20',
+    'lucida 20 bold italic',
+    "gray10",
+    "dark slate gray",
+    "slate gray",
+    "sea green",
+    "dark slate gray",
+    "sea green",
+    'system 8 bold'], 3)
+
+Neomath = Game_Set([
+    'Neomath',
+    'Calibri 12',
+    'Haettenschweiler 84',
+    'Haettenschweiler 36',
+    'system 16 bold',
+    "gray10",
+    "dark slate gray",
+    "slate gray",
+    "sea green",
+    "dark slate gray",
+    "sea green",
+    'system 8 bold'], 4)
+
+Nintendo = Game_Set([
+    'Nintendo',
+    'Dubai 10',
+    'Arial 72',
+    'Arial 20',
+    'lucida 20 bold italic',
+    'gray10',
+    'red4',
+    'slate gray',
+    'grey95',
+    'red4',
+    'grey95',
+    'system 8 bold'], 5)
+
+All = Game_Set([
+    'All',
+    'Dubai 10',
+    'Arial 72',
+    'Arial 20',
+    'system 16 bold',
+    "gray10",
+    "dark slate gray",
+    "slate gray",
+    "sea green",
+    "dark slate gray",
+    "sea green",
+    'system 8 bold'], 6)
 
 '''
 def Font_Check(Games_Lister = Games_List, Font = 'Base_Font', Theme = 0):
@@ -39,6 +134,8 @@ Game_List = [
     Dungeons_and_Dragons,
     GURPS,
     Savage_Worlds,
+    Neomath,
+    Nintendo,
     All
 ]
 
@@ -46,12 +143,12 @@ MEGA_LIST = [
     Game_List
 ]
 
-Config_Window = False
+Config_Window = True
 
 ### Default is None. Games have specfic dices.
 Game = Game_List[4] ### < Functions
 Game_Theme = Game_List[4] ### < Graphics
-Resolution = '1280x960'
+Resolution = '1440x960' #Res_Check(Game_List[4], '960x960', '1440x960') #'1280x960'
 Scale = 0.1
 ### Default 'system 8'
 Base_Font = Game_Theme.run(1) ### 1
@@ -59,13 +156,13 @@ Counter_Font = Game_Theme.run(2) ### 2
 Modifier_Font = Game_Theme.run(3) ### 3
 Log_Font = Game_Theme.run(4) ### 4, Default lucida 20 bold italic
 Individual_Dice_Font = Game_Theme.run(11)
-Reset_After_Roll = True
+Reset_After_Roll = False
 
 Sounds = False
 Sound_Theme = sd.THEME[0]
 
 Pictures = False
-Version = '3.1.1b'
+Version = '3.5.0'
 Text_Size_Scale = 1
 Background_Color = Game_Theme.run(5) ### 5
 Scroll_Color_t = Game_Theme.run(6) ### 6
