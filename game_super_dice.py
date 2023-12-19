@@ -742,6 +742,10 @@ if cf.Game != cf.Game_List[4]:
     d20b12 = tk.Button(main, text = ("12d20"), font = (cf.Base_Font),
                 command = lambda : Roll_Dice(12,20,'none',True,Amount_var.get(),Count_Rounder.truth,Limited_Count.truth), fg = "blue violet", bg = "gray3").grid(row=7,column=13,ipadx=120*SCALE,ipady=5*SCALE)
 
+if cf.Game == cf.Game_List[4]: ### Its a repeat of the d20 code, its for readability :3
+    d20b = tk.Button(main, text = ("d20    "), font = (cf.Base_Font),
+                command = lambda : Roll_Dice(1,20,'none',True,Amount_var.get(),Count_Rounder.truth,Limited_Count.truth), fg = "blue violet", bg = "gray3").grid(row=7,column=2,ipadx=120*SCALE,ipady=5*SCALE)
+    
 dc_p1 = tk.Button(main, text = ("Quanity +1"), font = (cf.Base_Font),
             command = lambda : Set_Custom_Quanity(1), fg = "gray99", bg = "gray3").grid(row=8,column=3,ipadx=11*SCALE,ipady=5*SCALE)
 dc_p5 = tk.Button(main, text = ("Quanity +5"), font = (cf.Base_Font),

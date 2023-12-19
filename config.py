@@ -162,7 +162,7 @@ Sounds = False
 Sound_Theme = sd.THEME[0]
 
 Pictures = False
-Version = '3.5.0'
+Version = '3.5.1'
 Text_Size_Scale = 1
 Background_Color = Game_Theme.run(5) ### 5
 Scroll_Color_t = Game_Theme.run(6) ### 6
